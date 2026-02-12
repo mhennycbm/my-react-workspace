@@ -8,7 +8,7 @@ import styles from './feature-todo.module.css';
 const LOCAL_STORAGE_KEY = 'todos-app-data';
 
 function generateId(): string {
-  return `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+  return `${Date.now()}-${Math.random().toString(36).slice(2, 11)}`;
 }
 
 function loadTodosFromStorage(): Todo[] {
