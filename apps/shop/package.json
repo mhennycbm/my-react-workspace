@@ -22,6 +22,7 @@
     "@org/shop-data": "*",
     "@org/shop-feature-product-detail": "*",
     "@org/shop-feature-products": "*",
+    "@org/shop-feature-todo": "*",
     "@org/shop-shared-ui": "*"
   }
 }
