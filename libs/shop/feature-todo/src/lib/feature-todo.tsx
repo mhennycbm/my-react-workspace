@@ -13,9 +13,11 @@ function generateId(): string {
 
 function loadTodosFromStorage(): Todo[] {
   try {
-    const stored = localStorage.getItem(LOCAL_STORAGE_KEY);
-    if (stored) {
-      return JSON.parse(stored);
+    if (typeof window !== 'undefined') {
+      const stored = localStorage.getItem(LOCAL_STORAGE_KEY);
+      if (stored) {
+        return JSON.parse(stored);
+      }
     }
   } catch (error) {
     console.error('Error loading todos from localStorage:', error);
@@ -25,7 +27,9 @@ function loadTodosFromStorage(): Todo[] {
 
 function saveTodosToStorage(todos: Todo[]): void {
   try {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos));
+    if (typeof window !== 'undefined') {
+      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos));
+    }
   } catch (error) {
     console.error('Error saving todos to localStorage:', error);
   }
@@ -81,27 +85,27 @@ export function TodoApp() {
   const hasCompleted = todos.some((todo) => todo.completed);
 
   return (
-    <div className={styles['container']}>
-      <div className={styles['todo-app']}>
-        <header className={styles['header']}>
-          <h1 className={styles['title']}>Todo App</h1>
-          <p className={styles['subtitle']}>Organize your tasks efficiently</p>
+    <div className={styles['container']}> 
+      <div className={styles['todo-app']}> 
+        <header className={styles['header']}> 
+          <h1 className={styles['title']}>Todo App</h1> 
+          <p className={styles['subtitle']}>Organize your tasks efficiently</p> 
         </header>
 
-        <div className={styles['content']}>
-          <TodoInput onAdd={handleAddTodo} />
+        <div className={styles['content']}> 
+          <TodoInput onAdd={handleAddTodo} /> 
           <TodoList
             todos={filteredTodos}
             onToggle={handleToggleTodo}
             onDelete={handleDeleteTodo}
-          />
+          /> 
           <TodoFilters
             currentFilter={filter}
             onFilterChange={setFilter}
             activeCount={activeCount}
             onClearCompleted={handleClearCompleted}
             hasCompleted={hasCompleted}
-          />
+          /> 
         </div>
       </div>
     </div>
