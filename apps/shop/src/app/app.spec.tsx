@@ -19,6 +19,6 @@ describe('App', () => {
         <App />
       </BrowserRouter>
     );
-    expect(getByText('Nx Shop Demo')).toBeInTheDocument();
+    expect(getByText('Official Shop Demo')).toBeInTheDocument();
   });
 });
