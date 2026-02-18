@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_mhennycbm_my_react_workspace_1771434823124-pr-trigger-input-set
+  identifier: Build_mhennycbm_my_react_workspace_1771434823124prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: Build_mhennycbm_my_react_workspace_1771434823124
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
